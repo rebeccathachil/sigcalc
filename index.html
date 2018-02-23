@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script type="text/javascript"></script>
+		<script type="text/javascript" src="calculations.js"></script>
+		<script>
+
+		function compute() {
+			sample1 = document.getElementById("sample1")
+			result2 = document.getElementById("result2")
+			sample2 = document.getElementById("sample2")
+			result2 = document.getElementById("result2")
+			// console.log(sample1.value, result2.value, sample2.value, result2.value)
+			// console.log(parseInt(sample1.value) + parseInt(result2.value))
+			// console.log(parseInt(sample2.value) + parseInt(sample2.value))
+			return parseInt(sample1.value) + parseInt(result1.value)
+			return parseInt(sample2.value) + parseInt(result2.value)
+		}
+
+		function showSum() {
+			console.log(compute())
+			document.getElementById("display").innerHTML = compute();
+		}
+
+			</script>
+	</head>
+
+	<body>
+		<p>
+		What are you trying to test?
+		<form action="">
+		  <input type="radio" name="testType" value="emailLink"> Email Link Clicks<br>
+		  <input type="radio" name="testType" value="emailOpen"> Email Opens<br>
+		  <input type="radio" name="testType" value="emailDevice"> Email Devices<br>
+		  <input type="radio" name="testType" value="survey"> Survey Results<br>
+		  <input type="radio" name="testType" value="intranet"> Intranet Analytics
+		</form>
+		</p>
+
+		<form>	
+			<h2>Test 1</h2>
+			Number of Impressions: <input type="number" name="sample" id="sample1">
+			<br>
+			Number of Conversions: <input type="number" name="result" id="result1">
+			<h2>Test 2</h2>
+			Number of Impressions: <input type="number" name="sample" id="sample2">
+			<br>
+			Number of Conversions: <input type="number" name="result" id="result2">
+		</form>
+		<button type="submit" onClick="compute();showSum();" value="Submit">Button</button>
+
+<!-- 		<label onclick="showSum()">Sum:</label>
+ -->		<span id="display"></span>
+		<br>
+
+	</body>
+</html>
