@@ -6,11 +6,11 @@
 		<script type="text/javascript" src="working_sig.js"></script>
 		<script>
 function compute() {
-	var sample1 = document.getElementById("sample1")
-	var result1 = document.getElementById("result1")
-	var sample2 = document.getElementById("sample2")
-	var result2 = document.getElementById("result2")
-	console.log("is this right")
+	var sample1 = document.getElementById("sample1").value
+	var sample2 = document.getElementById("sample2").value
+	var result1 = document.getElementById("result1").value
+	var result2 = document.getElementById("result2").value
+	// console.log("is this right")
 	// console.log(sample1.value, result2.value, sample2.value, result2.value)
 	// console.log(par	seInt(sample1.value) + parseInt(result2.value))
 	// console.log(parseInt(sample2.value) + parseInt(sample2.value))
@@ -24,6 +24,63 @@ function showSig() {
 	var sig = compute()
 	document.getElementById("display").innerHTML = sig;
 }
+
+function displayTest() {
+	// var value = sel.value;
+	var dropVal = document.getElementById("testSelect")
+	var test = dropVal.options[dropVal.selectedIndex].value;
+	if (test == "emailLink")
+		linkClicks()
+	if (test == "emailOpen")
+		emailOpens()
+	if (test == "emailDevice")
+		emailDevice()
+	if (test == "survey")
+		survey()
+	if (test == "intranet")
+		intranet()
+	if (test == "custom")
+		custom()
+	return
+}
+
+function linkClicks() {
+	document.getElementsByClassName("testTitle") = "Testing Link Clicks";
+	document.getElementsByClassName("resultLabel") = "Link Clicks"
+	document.getElementById("testTitle").innerHTML = "Testing Link Clicks";
+	document.getElementById("resultLabel").innerHTML = "Link Clicks"
+}
+
+function emailOpens() {
+	document.getElementById("testTitle").innerHTML = "Testing Email Opens";
+	document.getElementById("sampleLabel").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel").innerHTML = "Email Opens"
+}
+
+function emailDevice() {
+	document.getElementById("testTitle").innerHTML = "Testing Mobile Opens";
+	document.getElementById("sampleLabel").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel").innerHTML = "Numnber of Mobile Opens"
+}
+
+function survey() {
+	document.getElementById("testTitle").innerHTML = "Testing Survey Results";
+	document.getElementById("sampleLabel").innerHTML = "Number of Respondents";
+	document.getElementById("resultLabel").innerHTML = "Number of Target Responses"
+}
+
+function intranet() {
+	document.getElementById("testTitle").innerHTML = "Testing Intranet Analytics";
+	document.getElementById("sampleLabel").innerHTML = "Number of Pageviews or Sessions";
+	document.getElementById("resultLabel").innerHTML = "Number of Conversions"
+}
+
+function custom() {
+	document.getElementById("testTitle").innerHTML = "Custom Test";
+	document.getElementById("sampleLabel").innerHTML = "Sample Group";
+	document.getElementById("resultLabel").innerHTML = "Affected Group"
+}
+
 </script>
 
 	</head>
@@ -31,31 +88,36 @@ function showSig() {
 	<body>
 		<p>
 		What are you trying to test?
-		<select>
-		  <option name="testType" value="emailLink"> Email Link Clicks</option>
-		  <option name="testType" value="emailOpen"> Email Opens</option>
-		  <option name="testType" value="emailDevice"> Email Devices</option>
-		  <option name="testType" value="survey"> Survey Results</option>
-		  <option name="testType" value="intranet"> Intranet Analytics</option>
-		  <option name="testType" value="custom"> Custom</option>
+		<select id="testSelect" onchange="displayTest()">
+		  <option value="default"> Select your test type</option>
+		  <option value="emailLink"> Email Link Clicks</option>
+		  <option value="emailOpen"> Email Opens</option>
+		  <option value="emailDevice"> Mobile Opens</option>
+		  <option value="survey"> Survey Results</option>
+		  <option value="intranet"> Intranet Analytics</option>
+		  <option value="custom"> Custom</option>
 		</select>
 		</p>
 
-		<h2>Your Email Opens Test</h2>
+		<h2 id="testTitle">Default Title</h2>
 
 		<form>	
 			<h3>Test 1</h3>
-			Number of Impressions: <input type="number" name="sample" id="sample1">
+			<label class="sampleLabel" id="sampleLabel1">Number of Impressions: </label>
+				<input type="number" name="sample" id="sample1">
 			<br>
-			Number of Conversions: <input type="number" name="result" id="result1">
+			<label class="resultLabel" id="resultLabel1">Number of Conversions: </label>
+				<input type="number" name="result" id="result1">
 			<h3>Test 2</h3>
-			Number of Impressions: <input type="number" name="sample" id="sample2">
+			<label class="sampleLabel" id="sampleLabel2">Number of Impressions: </label>
+				<input type="number" name="sample" id="sample2">
 			<br>
-			Number of Conversions: <input type="number" name="result" id="result2">
+			<label class="resultLabel" id="resultLabel2">Number of Conversions: </label>
+				<input type="number" name="result" id="result2">
 		</form>
 		<button type="submit" onClick="showSig();" value="Submit">Button</button>
 		<span id="display"></span>
 		<br>
-
+<!-- Need Error Message -->
 	</body>
 </html>
