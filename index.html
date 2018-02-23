@@ -30,21 +30,24 @@ function showSig() {
 	<body>
 		<p>
 		What are you trying to test?
-		<form action="">
-		  <input type="radio" name="testType" value="emailLink"> Email Link Clicks<br>
-		  <input type="radio" name="testType" value="emailOpen"> Email Opens<br>
-		  <input type="radio" name="testType" value="emailDevice"> Email Devices<br>
-		  <input type="radio" name="testType" value="survey"> Survey Results<br>
-		  <input type="radio" name="testType" value="intranet"> Intranet Analytics
-		</form>
+		<select>
+		  <option name="testType" value="emailLink"> Email Link Clicks</option>
+		  <option name="testType" value="emailOpen"> Email Opens</option>
+		  <option name="testType" value="emailDevice"> Email Devices</option>
+		  <option name="testType" value="survey"> Survey Results</option>
+		  <option name="testType" value="intranet"> Intranet Analytics</option>
+		  <option name="testType" value="custom"> Custom</option>
+		</select>
 		</p>
 
+		<h2>Your Email Opens Test</h2>
+
 		<form>	
-			<h2>Test 1</h2>
+			<h3>Test 1</h3>
 			Number of Impressions: <input type="number" name="sample" id="sample1">
 			<br>
 			Number of Conversions: <input type="number" name="result" id="result1">
-			<h2>Test 2</h2>
+			<h3>Test 2</h3>
 			Number of Impressions: <input type="number" name="sample" id="sample2">
 			<br>
 			Number of Conversions: <input type="number" name="result" id="result2">
