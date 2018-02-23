@@ -3,26 +3,29 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script type="text/javascript"></script>
 		<script type="text/javascript" src="calculations.js"></script>
-		<script>
+		// <script>
 
-		function compute() {
-			sample1 = document.getElementById("sample1")
-			result2 = document.getElementById("result2")
-			sample2 = document.getElementById("sample2")
-			result2 = document.getElementById("result2")
-			// console.log(sample1.value, result2.value, sample2.value, result2.value)
-			// console.log(parseInt(sample1.value) + parseInt(result2.value))
-			// console.log(parseInt(sample2.value) + parseInt(sample2.value))
-			return parseInt(sample1.value) + parseInt(result1.value)
-			return parseInt(sample2.value) + parseInt(result2.value)
-		}
+		// function compute() {
+		// 	var sample1 = document.getElementById("sample1")
+		// 	var result2 = document.getElementById("result2")
+		// 	var sample2 = document.getElementById("sample2")
+		// 	var result2 = document.getElementById("result2")
+		// 	console.log("is this right")
+		// 	// console.log(sample1.value, result2.value, sample2.value, result2.value)
+		// 	// console.log(par	seInt(sample1.value) + parseInt(result2.value))
+		// 	// console.log(parseInt(sample2.value) + parseInt(sample2.value))
+		// 	return {
+		// 		sum1: (parseInt(sample1.value) + parseInt(result1.value)),
+		// 		sum2: (parseInt(sample2.value) + parseInt(result2.value))
+		// 	}
+		// }
 
-		function showSum() {
-			console.log(compute())
-			document.getElementById("display").innerHTML = compute();
-		}
+		// function showSum() {
+		// 	var sums = compute()
+		// 	document.getElementById("display").innerHTML = "Sums: " + sums.sum1 + "  " + sums.sum2;
+		// }
 
-			</script>
+		// 	</script>
 	</head>
 
 	<body>
@@ -47,7 +50,7 @@
 			<br>
 			Number of Conversions: <input type="number" name="result" id="result2">
 		</form>
-		<button type="submit" onClick="compute();showSum();" value="Submit">Button</button>
+		<button type="submit" onClick="showSum();" value="Submit">Button</button>
 
 <!-- 		<label onclick="showSum()">Sum:</label>
  -->		<span id="display"></span>
