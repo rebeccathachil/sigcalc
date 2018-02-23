@@ -1,1 +1,7 @@
-CSS
+input[type=radio] {
+	font-size: 30px;
+}
+
+input {
+	margin: 11px;
+}
