@@ -20,7 +20,15 @@ function compute() {
 	return calcSig(sample1, sample2, result1, result2)
 }
 
-function showSig() {
+function submit() {
+	var dropVal = document.getElementById("testSelect")
+	var test = dropVal.options[dropVal.selectedIndex].value;
+	if (test == "default")
+		alert("Please select a test type")
+
+	var params = document.getElementById("testParams")
+	var a = params.input["sample1"]
+
 	var sig = compute()
 	document.getElementById("display").innerHTML = sig;
 }
@@ -45,41 +53,57 @@ function displayTest() {
 }
 
 function linkClicks() {
-	document.getElementsByClassName("testTitle") = "Testing Link Clicks";
-	document.getElementsByClassName("resultLabel") = "Link Clicks"
 	document.getElementById("testTitle").innerHTML = "Testing Link Clicks";
-	document.getElementById("resultLabel").innerHTML = "Link Clicks"
+	document.getElementById("sampleLabel1").innerHTML = "Email Opens";
+	document.getElementById("resultLabel1").innerHTML = "Link Clicks";
+	document.getElementById("sampleLabel2").innerHTML = "Email Opens";
+	document.getElementById("resultLabel2").innerHTML = "Link Clicks"
+
 }
 
 function emailOpens() {
 	document.getElementById("testTitle").innerHTML = "Testing Email Opens";
-	document.getElementById("sampleLabel").innerHTML = "Number of Recipients";
-	document.getElementById("resultLabel").innerHTML = "Email Opens"
+	document.getElementById("sampleLabel1").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel1").innerHTML = "Email Opens";
+	document.getElementById("sampleLabel2").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel2").innerHTML = "Email Opens"
 }
 
 function emailDevice() {
 	document.getElementById("testTitle").innerHTML = "Testing Mobile Opens";
-	document.getElementById("sampleLabel").innerHTML = "Number of Recipients";
-	document.getElementById("resultLabel").innerHTML = "Numnber of Mobile Opens"
+	document.getElementById("sampleLabel1").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel1").innerHTML = "Numnber of Mobile Opens";
+	document.getElementById("sampleLabel2").innerHTML = "Number of Recipients";
+	document.getElementById("resultLabel2").innerHTML = "Numnber of Mobile Opens"
 }
 
 function survey() {
 	document.getElementById("testTitle").innerHTML = "Testing Survey Results";
-	document.getElementById("sampleLabel").innerHTML = "Number of Respondents";
-	document.getElementById("resultLabel").innerHTML = "Number of Target Responses"
+	document.getElementById("sampleLabel1").innerHTML = "Number of Respondents";
+	document.getElementById("resultLabel1").innerHTML = "Number of Target Responses";
+	document.getElementById("sampleLabel2").innerHTML = "Number of Respondents";
+	document.getElementById("resultLabel2").innerHTML = "Number of Target Responses"
 }
 
 function intranet() {
 	document.getElementById("testTitle").innerHTML = "Testing Intranet Analytics";
-	document.getElementById("sampleLabel").innerHTML = "Number of Pageviews or Sessions";
-	document.getElementById("resultLabel").innerHTML = "Number of Conversions"
+	document.getElementById("sampleLabel1").innerHTML = "Number of Pageviews or Sessions";
+	document.getElementById("resultLabel1").innerHTML = "Number of Conversions";
+	document.getElementById("sampleLabel2").innerHTML = "Number of Pageviews or Sessions";
+	document.getElementById("resultLabel2").innerHTML = "Number of Conversions"
 }
 
 function custom() {
 	document.getElementById("testTitle").innerHTML = "Custom Test";
-	document.getElementById("sampleLabel").innerHTML = "Sample Group";
-	document.getElementById("resultLabel").innerHTML = "Affected Group"
+	document.getElementById("sampleLabel1").innerHTML = "Sample Group";
+	document.getElementById("resultLabel1").innerHTML = "Affected Group";
+	document.getElementById("sampleLabel2").innerHTML = "Sample Group";
+	document.getElementById("resultLabel2").innerHTML = "Affected Group"
 }
+
+// function validateSubmission() {
+// 	var a = document.select[]
+// }
 
 </script>
 
@@ -101,7 +125,7 @@ function custom() {
 
 		<h2 id="testTitle">Default Title</h2>
 
-		<form>	
+		<form id="testParams">	
 			<h3>Test 1</h3>
 			<label class="sampleLabel" id="sampleLabel1">Number of Impressions: </label>
 				<input type="number" name="sample" id="sample1">
@@ -115,7 +139,7 @@ function custom() {
 			<label class="resultLabel" id="resultLabel2">Number of Conversions: </label>
 				<input type="number" name="result" id="result2">
 		</form>
-		<button type="submit" onClick="showSig();" value="Submit">Button</button>
+		<button type="submit" onClick="submit();displayTest()" value="Submit">Button</button>
 		<span id="display"></span>
 		<br>
 <!-- Need Error Message -->

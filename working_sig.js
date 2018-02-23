@@ -73,11 +73,6 @@ function calcSig(sample1, sample2, result1, result2){
         sigResult = "Is not significant";
     }
 
-    console.log(sample1)
-    console.log(sample2)
-    console.log(result1)
-    console.log(result2)
-    console.log((1/2)*(1+sign*erf));
     console.log(sigResult);
     
     return sigResult
