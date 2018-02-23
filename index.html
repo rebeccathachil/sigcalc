@@ -154,25 +154,25 @@ function custom() {
 		</select>
 		</p>
 
-		<h2 id="testTitle">Default Title</h2>
+		<h2 id="testTitle"></h2>
 
 		<form id="testParams">	
-			<h3>Test 1</h3>
+			<h3>Test A</h3>
 			<label class="sampleLabel" id="sampleLabel1">Number of Impressions: </label>
 				<input type="number" name="sample" id="sample1" placeholder="eg. 1000" min="0">
 			<br>
 			<label class="resultLabel" id="resultLabel1">Number of Conversions: </label>
 				<input type="number" name="result" id="result1" placeholder="eg. 300" min="0">
 			<br>
-			Conversion Rate: <div id="conv1"></div>
-			<h3>Test 2</h3>
+			<p class="conversion_title">Conversion Rate: </p><span id="conv1"></span>
+			<h3>Test B</h3>
 			<label class="sampleLabel" id="sampleLabel2">Number of Impressions: </label>
 				<input type="number" name="sample" id="sample2" placeholder="eg.1500" min="0">
 			<br>
 			<label class="resultLabel" id="resultLabel2">Number of Conversions: </label>
 				<input type="number" name="result" id="result2" placeholder="eg. 400" min="0">
 			<br>
-			Conversion Rate: <div id="conv2"></div>
+			<p class="conversion_title">Conversion Rate: </p><span id="conv2"></span>
 		</form>
 		<div id="typeErrors" style="display: none; color: #f04d41; padding: 10px 0px;">Please select a test type using the dropdown above</div>
 		<div id="paramsErrors" style="display: none; color: #f04d41; padding: 10px 0px;">Please complete all the required fields</div>

@@ -42,10 +42,14 @@ button:hover {
 	transform: scale(1.1);
 }
 
+.conversion_title {
+	display: inline;
+}
+
 .calculator_header {
 	font-size: 24px;
 	color: #fff;
-	height: 11%;
+	height: 60px;
 	background-color: #ffb848;
 	margin: 0px -10px;
 	margin-bottom: 35px;
