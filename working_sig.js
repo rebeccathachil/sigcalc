@@ -68,9 +68,9 @@ function calcSig(sample1, sample2, result1, result2){
     var sigResult;
     if (p<0.05 || p>0.95) {
     //feel free to change the verbatim of the sigResult varible
-        sigResult = "Hurray! Your test results show significant difference. Go forth, victorious!";
+        sigResult = "Your test result is significant";
     } else {
-        sigResult = "Hmm, your test results don't seem significant yet. Make a bigger change or get a bigger sample size";
+        sigResult = "Your test result is not significant";
     }
 
     console.log(sigResult);

@@ -10,13 +10,6 @@ function compute() {
 	var sample2 = document.getElementById("sample2").value
 	var result1 = document.getElementById("result1").value
 	var result2 = document.getElementById("result2").value
-	// console.log("is this right")
-	// console.log(sample1.value, result2.value, sample2.value, result2.value)
-	// console.log(par	seInt(sample1.value) + parseInt(result2.value))
-	// console.log(parseInt(sample2.value) + parseInt(sample2.value))
-	// return {
-	// 	sum1: (parseInt(sample1.value) + parseInt(result1.value)),
-	// 	sum2: (parseInt(sample2.value) + parseInt(result2.value))
 	return calcSig(sample1, sample2, result1, result2)
 }
 
@@ -24,20 +17,31 @@ function showSig() {
 	// If test type has not been selected, give error
 	var dropVal = document.getElementById("testSelect")
 	var test = dropVal.options[dropVal.selectedIndex].value;
-	if (test == "default")
-		document.getElementById("errors").innerHTML = "Please select a test type"
+	var typeErrors = document.getElementById("typeErrors");
+	if (test == "default") {
+		console.log("oops");
+		typeErrors.style.display = "block";
+	} else {
+		console.log("yay")
+		typeErrors.style.display = "none"
+	}
+		// document.getElementById("errors").innerHTML = "Please select a test type"
 
 	// If any fields are blank, give error
 	var sample1 = document.getElementById("sample1").value;
 	var sample2 = document.getElementById("sample2").value;
 	var result1 = document.getElementById("result1").value;
 	var result2 = document.getElementById("result2").value;
-	if (sample1 == "" || sample2 == "" || result1 == "" || result2 == "")
-		document.getElementById("errors").innerHTML = "Please input the required fields"
+	var paramsErrors = document.getElementById("paramsErrors");
+	if (sample1 == "" || sample2 == "" || result1 == "" || result2 == "") {
+		console.log("oops")
+		paramsErrors.style.display = "block";
+	} else {
+		paramsErrors.style.display = "none";
+		console.log("yay")}
 
 	// Displays conversion rates
 	var sig = compute([0])
-	document.getElementById("display").innerHTML = sig[0];
 	var error1 = isNaN(sig[1])
 	if (error1 == true)
 		document.getElementById("conv1").innerHTML = ""
@@ -48,6 +52,10 @@ function showSig() {
 		document.getElementById("conv2").innerHTML = ""
 	else
 		document.getElementById("conv2").innerHTML = (Math.round(sig[2]*100)) + "%"
+
+	// Gives significant difference
+
+	document.getElementById("display").innerHTML = sig[0];
 }
 
 function displayTest() {
@@ -118,10 +126,6 @@ function custom() {
 	document.getElementById("resultLabel2").innerHTML = "Affected Group"
 }
 
-// function validateSubmission() {
-// 	var a = document.select[]
-// }
-
 </script>
 
 	</head>
@@ -129,7 +133,7 @@ function custom() {
 	<body>
 		<p>
 		What are you trying to test?
-		<select id="testSelect" onchange="displayTest()">
+		<select id="testSelect" onchange="displayTest(); showSig();">
 		  <option value="default"> Select your test type</option>
 		  <option value="emailLink"> Email Link Clicks</option>
 		  <option value="emailOpen"> Email Opens</option>
@@ -160,10 +164,13 @@ function custom() {
 			<br>
 			Conversion Rate: <div id="conv2"></div>
 		</form>
-		<div id="errors"></div>
-		<button type="submit" onClick="showSig();" value="Submit">Button</button>
-		<div id="display"></div>
+		<div class="errors" id="errors"></div>
+		<div id="typeErrors" style="display:none">Please select a test type using the dropdown above</div>
 		<br>
-<!-- Need Error Message -->
+		<div id="paramsErrors" style="display:none">Please complete all the required fields</div>
+		<br>
+		<button type="submit" onClick="showSig();" value="Submit">Submit</button>
+		<div style="font-weight: 600" id="display"></div>
+		<br>
 	</body>
 </html>
