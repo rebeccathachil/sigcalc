@@ -1,7 +1,41 @@
-input[type=radio] {
-	font-size: 30px;
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+
+body {
+	text-align: center;
+	font-family: 'Open Sans', Sans-serif;
+	background-color: #f5f5f5;
+	max-width: 950px;
 }
 
 input {
-	margin: 11px;
+	margin: 5px;
+	padding: 5px;
+	font-size: 14px;
+}
+
+select {
+	font-size: 14px;
+	margin: 0px 8px;
+}
+
+button {
+	margin: 10px 0px 25px;
+	padding: 10px 20px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #2fa7df;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 6px 2px #077db4;
+	transition: all 0.4s ease 0.1s;
+}
+
+button:hover {
+	transform: scale(1.1);
+}
+
+
+
+#display {
+	
 }
