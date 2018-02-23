@@ -46,7 +46,6 @@ button:hover {
 	transform: scale(1.1);
 }
 
-div#display {
-	margin-top: 300px;
+.errors {
 	color: #f04d41;
 }
