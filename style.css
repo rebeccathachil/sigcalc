@@ -5,10 +5,15 @@ body {
 	font-family: 'Open Sans', Sans-serif;
 	background-color: #f5f5f5;
 	max-width: 650px;
-	padding: 20px;
+	padding: 20px 10px;
 	margin: 0 auto;
 	border-radius: 5px;
 	box-shadow: 0px 6px 2px #b9b9b9;
+}
+
+
+label {
+/*	width: 30%;*/
 }
 
 input {
@@ -16,6 +21,9 @@ input {
 	padding: 5px;
 	font-size: 14px;
 }
+
+input:focus {
+	transform: scale(1.05);
 
 select {
 	font-size: 14px;
@@ -38,6 +46,7 @@ button:hover {
 	transform: scale(1.1);
 }
 
-#display {
-	
+div#display {
+	margin-top: 300px;
+	color: #f04d41;
 }
