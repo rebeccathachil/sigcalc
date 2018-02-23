@@ -1,7 +1,9 @@
+//4 inputs from user
 var sample1 = 1000;
 var sample2 = 1500;
 var result1 = 500;
 var result2 = 500;
+//inputs end here
 
 var conversionRate1 = result1/sample1;
 var conversionRate2 = result2/sample2;
@@ -56,19 +58,21 @@ var p;
 if(zVal < 0)
 {
     sign = -1;
-} else {
-  p = (1/2)*(1+sign*erf);
 }
+
+p = (1/2)*(1+sign*erf);
+
 
 
 var sig;
 if (p<0.05 || p>0.95) {
-    sig = "YES";
+//feel free to change the verbatim of the sigResult varible
+    sigResult = "Is significant";
 } else {
-    sig = "NO";
+    sigResult = "Is not significant";
 }
 
-console.log(sig);
+console.log(sigResult);
 
 
 
