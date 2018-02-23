@@ -2,30 +2,29 @@
 	<head>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script type="text/javascript"></script>
-		<script type="text/javascript" src="calculations.js"></script>
-		// <script>
+		<script type="text/javascript" src="working_sig.js"></script>
+		<script>
+function compute() {
+	var sample1 = document.getElementById("sample1")
+	var result1 = document.getElementById("result1")
+	var sample2 = document.getElementById("sample2")
+	var result2 = document.getElementById("result2")
+	console.log("is this right")
+	// console.log(sample1.value, result2.value, sample2.value, result2.value)
+	// console.log(par	seInt(sample1.value) + parseInt(result2.value))
+	// console.log(parseInt(sample2.value) + parseInt(sample2.value))
+	// return {
+	// 	sum1: (parseInt(sample1.value) + parseInt(result1.value)),
+	// 	sum2: (parseInt(sample2.value) + parseInt(result2.value))
+	return calcSig(sample1, sample2, result1, result2)
+}
 
-		// function compute() {
-		// 	var sample1 = document.getElementById("sample1")
-		// 	var result2 = document.getElementById("result2")
-		// 	var sample2 = document.getElementById("sample2")
-		// 	var result2 = document.getElementById("result2")
-		// 	console.log("is this right")
-		// 	// console.log(sample1.value, result2.value, sample2.value, result2.value)
-		// 	// console.log(par	seInt(sample1.value) + parseInt(result2.value))
-		// 	// console.log(parseInt(sample2.value) + parseInt(sample2.value))
-		// 	return {
-		// 		sum1: (parseInt(sample1.value) + parseInt(result1.value)),
-		// 		sum2: (parseInt(sample2.value) + parseInt(result2.value))
-		// 	}
-		// }
+function showSig() {
+	var sig = compute()
+	document.getElementById("display").innerHTML = sig;
+}
+</script>
 
-		// function showSum() {
-		// 	var sums = compute()
-		// 	document.getElementById("display").innerHTML = "Sums: " + sums.sum1 + "  " + sums.sum2;
-		// }
-
-		// 	</script>
 	</head>
 
 	<body>
@@ -50,10 +49,8 @@
 			<br>
 			Number of Conversions: <input type="number" name="result" id="result2">
 		</form>
-		<button type="submit" onClick="showSum();" value="Submit">Button</button>
-
-<!-- 		<label onclick="showSum()">Sum:</label>
- -->		<span id="display"></span>
+		<button type="submit" onClick="showSig();" value="Submit">Button</button>
+		<span id="display"></span>
 		<br>
 
 	</body>
