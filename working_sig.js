@@ -75,5 +75,5 @@ function calcSig(sample1, sample2, result1, result2){
 
     console.log(sigResult);
     
-    return sigResult
+    return [sigResult, conversionRate1, conversionRate2];
 }

@@ -20,17 +20,20 @@ function compute() {
 	return calcSig(sample1, sample2, result1, result2)
 }
 
-function submit() {
-	var dropVal = document.getElementById("testSelect")
-	var test = dropVal.options[dropVal.selectedIndex].value;
-	if (test == "default")
-		alert("Please select a test type")
+function showSig() {
+	// var dropVal = document.getElementById("testSelect")
+	// var test = dropVal.options[dropVal.selectedIndex].value;
+	// if (test == "default")
+	// 	alert("Please select a test type")
 
-	var params = document.getElementById("testParams")
-	var a = params.input["sample1"]
-
-	var sig = compute()
-	document.getElementById("display").innerHTML = sig;
+	// var params = document.getElementById("testParams")
+	// var a = params.input[params.selectedIndex].value
+	// console.log("looking for blank fields")
+	// console.log(a)
+	var sig = compute([0])
+	document.getElementById("display").innerHTML = sig[0];
+	document.getElementById("conv1").innerHTML = (Math.round((sig[1])*100)) + "%"
+	document.getElementById("conv2").innerHTML = (Math.round((sig[2])*100)) + "%"
 }
 
 function displayTest() {
@@ -132,12 +135,16 @@ function custom() {
 			<br>
 			<label class="resultLabel" id="resultLabel1">Number of Conversions: </label>
 				<input type="number" name="result" id="result1">
+			<br>
+			Conversion Rate: <div id="conv1"></div>
 			<h3>Test 2</h3>
 			<label class="sampleLabel" id="sampleLabel2">Number of Impressions: </label>
 				<input type="number" name="sample" id="sample2">
 			<br>
 			<label class="resultLabel" id="resultLabel2">Number of Conversions: </label>
 				<input type="number" name="result" id="result2">
+			<br>
+			Conversion Rate: <div id="conv2"></div>
 		</form>
 		<button type="submit" onClick="showSig();" value="Submit">Button</button>
 		<div id="display"></div>
