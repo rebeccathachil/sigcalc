@@ -21,19 +21,33 @@ function compute() {
 }
 
 function showSig() {
-	// var dropVal = document.getElementById("testSelect")
-	// var test = dropVal.options[dropVal.selectedIndex].value;
-	// if (test == "default")
-	// 	alert("Please select a test type")
+	// If test type has not been selected, give error
+	var dropVal = document.getElementById("testSelect")
+	var test = dropVal.options[dropVal.selectedIndex].value;
+	if (test == "default")
+		document.getElementById("errors").innerHTML = "Please select a test type"
 
-	// var params = document.getElementById("testParams")
-	// var a = params.input[params.selectedIndex].value
-	// console.log("looking for blank fields")
-	// console.log(a)
+	// If any fields are blank, give error
+	var sample1 = document.getElementById("sample1").value;
+	var sample2 = document.getElementById("sample2").value;
+	var result1 = document.getElementById("result1").value;
+	var result2 = document.getElementById("result2").value;
+	if (sample1 == "" || sample2 == "" || result1 == "" || result2 == "")
+		document.getElementById("errors").innerHTML = "Please input the required fields"
+
+	// Displays conversion rates
 	var sig = compute([0])
 	document.getElementById("display").innerHTML = sig[0];
-	document.getElementById("conv1").innerHTML = (Math.round((sig[1])*100)) + "%"
-	document.getElementById("conv2").innerHTML = (Math.round((sig[2])*100)) + "%"
+	var error1 = isNaN(sig[1])
+	if (error1 == true)
+		document.getElementById("conv1").innerHTML = ""
+	else
+		document.getElementById("conv1").innerHTML = (Math.round(sig[1]*100)) + "%"
+	var error2 = isNaN(sig[2])
+	if (error2 == true)
+		document.getElementById("conv2").innerHTML = ""
+	else
+		document.getElementById("conv2").innerHTML = (Math.round(sig[2]*100)) + "%"
 }
 
 function displayTest() {
@@ -146,6 +160,7 @@ function custom() {
 			<br>
 			Conversion Rate: <div id="conv2"></div>
 		</form>
+		<div id="errors"></div>
 		<button type="submit" onClick="showSig();" value="Submit">Button</button>
 		<div id="display"></div>
 		<br>
